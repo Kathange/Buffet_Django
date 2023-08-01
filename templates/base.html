@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <!-- % block <name> % : 定義一個區間，讓其他繼承者在去做更動 -->
+        <title> {% block title %} {% endblock %} </title>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
