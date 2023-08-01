@@ -128,10 +128,10 @@ STATIC_URL = '/static/'
 #     BASE_DIR / "static",
 # ]
 
-import os
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-]
+# import os
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,'static'),
+# ]
 
 # import os
 # STATIC_DIR = os.path.join(BASE_DIR, 'static')
