@@ -1,0 +1,72 @@
+/* start頁面 */
+.loginHomeBtn {
+    position:relative;
+    margin-left: 90%;
+    background: #eaeaea;
+    color : #5f5f5f;
+    font-size: 1.5vw;
+}
+
+.cirPos {
+    margin-top : 30px;
+    font-family: "Times New Roman", Times, serif;
+    font-size : 30px;
+    color : #5f5f5f;
+}
+.preloader > div {
+    background-color: #72c2a1;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: stretchdelay 1s infinite ease-in-out;
+}
+@keyframes stretchdelay {
+    0%, 40%, 100% { 
+         transform: translateY(0px);
+    }
+    20% {
+         transform: translateY(-10px);
+    }
+ }
+.preloader .circ1 {
+    animation-delay: 0;
+}
+.preloader .circ2 {
+    animation-delay: 0.1s;
+}
+.preloader .circ3 {
+    animation-delay: 0.2s;
+}
+.preloader .circ4 {
+    animation-delay: 0.3s;
+}
+
+.startBtn {
+    background-color: #7cbe95;
+    border: #cce6d6 10px solid;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 10px;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+}
+.startBtn:hover {
+    background-color: white;
+    border: #cce6d6 10px solid;
+    color: black;
+}
+
+/* camera: 640 * 480 */
+.camera {
+    width: 72vw;
+    height: 54vw;
+    overflow: hidden;
+    cursor: pointer;
+    margin : 10px;
+}
+

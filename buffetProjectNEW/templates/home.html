@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 3D智助餐 {% endblock %}
+        {% block content %}
+
+        <div class="App">
+            <div class="corners4">
+                <a href="{% url 'loginData' %}">
+                    <button class="loginHomeBtn">登入</button><br/>
+                </a>
+                
+                <img class="camera" src="{% url 'FoodVedioFeed' %}" /><br/>
+                
+                <a href="{% url 'cashier' %}">
+                    <button class="startBtn" id="startBtn" onclick="delayedToggle()">Start</button>
+                </a>
+
+                <!-- {% if ShowAndHide %} -->
+                <div class="cirPos" id="cirPos" style="display: none;">
+                    <div class="preloader">Analyzing
+                        <div class="circ1"></div>
+                        <div class="circ2"></div>
+                        <div class="circ3"></div>
+                        <div class="circ4"></div>
+                    </div>
+                </div>
+                <!-- {% endif %} -->
+            </div>
+        </div>
+        
+        <script>
+            // for start按鈕 和 analysis 的切換
+            function toggleContent() {
+                var hide = document.getElementById('cirPos');
+                var btn = document.getElementById('startBtn');
+                hide.style.display = 'none';
+                btn.style.display = 'inline';
+            }
+            function delayedToggle() {
+                var hide = document.getElementById('cirPos');
+                var btn = document.getElementById('startBtn');
+                hide.style.display = 'inline';
+                btn.style.display = 'none';
+                setTimeout(toggleContent, 5000);
+            }
+        </script>
+        {% endblock %}
+    </body>
+</html>

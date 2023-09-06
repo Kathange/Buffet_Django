@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+    <body>
+        {% block title %} 買家 {% endblock %}
+        {% block content %}
+        <div class="App">
+            <!-- 標題 -->
+            <h1 class="Buf-header">3D 智助餐</h1>
+
+            <!-- 內容 -->
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col"><h4>便當</h4></div>
+                    <div class="col"><h4>廚餘</h4></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="camera">
+                <div class="row">
+                    <div class="col">
+                        <!-- <img src="/media/interface/dragon.jpg" alt="" width="400px" height="200px" /> -->
+                        <img src="{% url 'FoodVedioFeed' %}" alt="" width="400px" height="200px" />
+                    </div>
+                    <div class="col">
+                        <img src="{% url 'WasteVedioFeed' %}" alt="" width="400px" height="200px" />
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">熱量(大卡)：</div>
+                    <div class="col">{{ calories }}</div>
+                    <div class="col">{{ calories }}</div>
+                    <div class="col"></div>
+                </div>
+            </div>
+
+            <!-- 回首頁 -->
+            <br>
+            <a href="/">
+                <button>回首頁</button>
+            </a>
+        </div>
+        {% endblock content %}
+    </body>
+</html>
+
