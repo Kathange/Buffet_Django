@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 賣家資訊 {% endblock %}
+        {% block content %}
+
+        <div class="App">
+            <div class="corners4">
+                <hr class="hr1" />
+                
+                <div class="dataNav">
+                    <ul class="nav"> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">賣家資料</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">更改密碼</a></li>
+                                <li><a class="dropdown-item" href="/">登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav justify-content-end"> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">銷售分析</a>
+                            <ul class="dropdown-menu">
+                                <!-- 調資料庫 -->
+                                <li><a class="dropdown-item" href="#">date1</a></li>
+                                <li><a class="dropdown-item" href="#">date2</a></li>
+                                <li><a class="dropdown-item" href="#">date3</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+                
+                <!-- 調資料庫 -->
+                <div class="detailed">
+                    <p class="date">date</p>
+                    <ul class="list-group">
+                        <li>food1：20 Cal</li>
+                        <li>food2：20 g</li>
+                        <li>food3：20 g</li>
+                        <li>food4：20 g</li>
+                        <li>food5：20 g</li>
+                    </ul>
+                </div>
+                
+                <hr class="hr2" />
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+

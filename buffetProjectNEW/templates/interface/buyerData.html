@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 買家資訊 {% endblock %}
+        {% block content %}
+
+        <div class="App">
+            <div class="corners4">
+                <hr class="hr1" />
+              
+                <div class="dataNav">
+                    <ul class="nav"> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">會員資料</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'changePW' %}">更改密碼</a></li>
+                                <li><a class="dropdown-item" href="/">登出</a></li>
+                                <li><a class="dropdown-item" href="/">回首頁</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <ul class="nav justify-content-end"> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">歷史紀錄</a>
+                            <ul class="dropdown-menu">
+                                <!-- 調資料庫 -->
+                                <li><a class="dropdown-item" href="#">date1</a></li>
+                                <li><a class="dropdown-item" href="#">date2</a></li>
+                                <li><a class="dropdown-item" href="#">date3</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+                
+                <!-- 調資料庫 -->
+                <div class="detailed">
+                    <p class="date">date</p>
+                    <ul class="list-group">
+                        <li>攝取總熱量：20 Cal</li>
+                        <li>蛋白質：20 g</li>
+                        <li>脂質：20 g</li>
+                        <li>碳水化合物：20 g</li>
+                        <li>纖維素：20 g</li>
+                        </ul>
+                </div>
+              
+                <hr class="hr2" />
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+
+
