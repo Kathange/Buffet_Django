@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 註冊帳號 {% endblock %}
+        {% block content %}
+
+        <div class="App">
+            <div class="corners4">
+                <hr class="hr1" />
+                
+                <!-- <form class="login">
+                    <input placeholder="帳號：" /><br/>
+                    <input placeholder="密碼：" /><br/>
+                    <input placeholder="再次確認密碼：" /><br/>
+                    <a href="{% url 'loginData' %}">
+                        <button type="submit">送出</button><br/>
+                    </a>
+                </form> -->
+                
+                <input placeholder="帳號：" /><br/>
+                <input placeholder="密碼：" /><br/>
+                <input placeholder="再次確認密碼：" /><br/>
+                <a href="{% url 'loginData' %}">
+                    <button type="submit">送出</button><br/>
+                </a>
+                
+                <hr class="hr2" />
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+
