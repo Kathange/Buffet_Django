@@ -1,0 +1,10 @@
+
+.nav-item, .nav .show>.nav-link {
+    font-size: 2vw;
+    margin: 5px;
+}
+
+.container-fluid {
+    background:#a7f8c1;
+    margin-top: -10px;
+}

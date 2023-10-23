@@ -1,0 +1,45 @@
+/* 營養資訊介面 */
+.donutChart {
+    /* width : 50vw; */
+    height : 50vw;
+    margin-bottom: 5%;
+}
+
+table {
+    width : 90%;
+    margin-left: 5%;
+}
+th, td, tr {
+    background-color : rgba(150,212,212,.4);
+    border : solid 2px #ffffff;
+    font-size: 2vw;
+    padding: 3px;
+}
+
+.loginBtn {
+    margin-top: 5%;
+    background-color: #96D4D4;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vw;
+    border-radius: 12px;
+    transition-duration: 0.2s;
+    size: 1.5vw;
+}
+.loginBtn:hover {
+    background-color: white;
+    border: 2px solid #96D4D4;
+    color: black;
+}
+
+hr {
+    border: 2px solid black;
+    margin-top : 30px;
+    margin-bottom : 30px;
+}
+
+

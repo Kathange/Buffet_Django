@@ -1,0 +1,25 @@
+{% extends "baseHome.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 3D智助餐 {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="home">
+            <img src="{% static 'image/home_backgroundOri.png' %}" class="home_background" />
+
+            <p class="title">3D智助餐</p>
+
+            <a href="{% url 'camera' %}" class="flowBtn">
+                <button type="button" class="btn btn-outline-success">開啟攝影機</button>
+            </a>
+        </div>      
+     
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,140 @@
+/* 基本背景 */
+.App {
+    text-align : center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    /* background:#a7f8c1; */
+    
+    .corners4 {
+        border: 2px solid #000000;
+        border-radius: 15px;
+        background: #eaeaea;
+        padding: 20px;
+        margin : 20px;
+        width: 95%;
+    }
+    .corners4:after {
+        content: "";
+        display: block;
+    }
+
+    .cornerslog {
+        border: 2px solid #000000;
+        border-radius: 15px;
+        background: #eaeaea;
+        padding: 20px;
+        margin : 20px;
+        width: 60%;
+    }
+    .cornerslog:after {
+        content: "";
+        display: block;
+    }
+}
+
+
+/* 登入介面 */
+.hr1 {
+    border: 2px solid black;
+    margin-top : 30px;
+    margin-bottom : 30px;
+}
+.hr2 {
+    position: relative;
+    border: 2px solid black;
+    margin-top : 30px;
+    margin-bottom : 30px;
+}
+.hr2:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 20px; /*0 without gap*/
+    bottom: 0;
+}
+
+.login {
+    border-radius: 30px;
+    /* background: #a7a7a7; */
+    padding: 15%;
+    width: 100%;
+}
+
+input {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size:20px;
+    display: inline;
+}
+button {
+    border: none;
+    color: black;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 12px;
+}
+
+
+
+
+
+/* 
+.Buf-header {
+    background-color: #282c34;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(15px + 2vmin);
+    color: white;
+}
+
+p {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 50px;
+}
+
+.BorS {
+    font-size: calc(10px + 2vmin);
+}
+
+table {    
+    width: 50%;
+    margin-left : 30%;
+    margin-top: 30px;
+}
+
+button {
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid #282c34;
+    border-radius: 3px;
+} 
+
+.camera {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px dashed #282c34;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+img {
+    object-fit: cover;
+}
+ */

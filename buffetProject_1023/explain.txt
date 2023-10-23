@@ -1,0 +1,45 @@
+有中文註解出現、我在下面有做說明，就是我設定的，其他都是創建project時系統一併給我的
+
+
+buffetProject：一個Project
+(照理來說 buffetProject_1012 會跟 buffetProject 名字一樣，但最外面的資料夾改了名字好像也沒關係哈哈)
+    settings.py為最主要的設定中心，這邊有設定，整個project才會動。除此之外，其他地方也要設定連結。
+
+
+interface：一個app
+(一個project中可以有好幾個app，但我沒那樣做)
+    migrations：建立的資料庫會存放在這
+
+    admin.py：資料庫管理
+    models.py：創建資料庫
+    urls.py：建立project到app的路徑
+    views.py：建立app到html上的路徑(也可寫程式，不過我們應該都是直接叫.py檔出來就是了)
+    camera.py：外叫的函式，處理攝影機方面
+
+
+media：沒有用的東西(當時測試用)
+
+
+static：裡面基本上會有3個資料夾分別存放CSS, JavaScript, Images，這3個歸static管
+(因為我們沒有JS，所以沒有)
+
+
+templates：存放所有html檔案
+    interface：如同剛剛說的，一個project中可以有好幾個app，所以屬於interface的html就存放在interface的資料夾中
+    registration：存放登入登出的html，可以先不用管
+
+    base.html：一切都基於這個檔，要引入什麼bootstrap css js...都從這裡引入
+    home.html：
+    cashier.html：
+    nutritionInfo.html：
+    buyerData.html：
+    sellerData：
+    loginData.html：
+    logoutData.html：
+    changePW.html：
+
+    example.html：模板，最簡化的網頁，格式就長這樣
+
+    (home copy.html, buyer.html都沒用到)
+
+
