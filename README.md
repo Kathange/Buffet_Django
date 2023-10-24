@@ -9,3 +9,4 @@ buffetProject_1023：改了網頁外觀，加上資料庫連接(有更改http/..
 
 <img src="django_admin.png" style="width:500px" />
 
+buffetProject_1024：更新資料庫，確認可連接資料庫並顯示到網頁上
