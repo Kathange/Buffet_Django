@@ -1,0 +1,82 @@
+/* 收銀區頁面 */
+.menu {
+    height: 70vh;
+    width: 50%;
+    /* background-color: #7C7C7C; */
+    display: flex;
+    position:relative;
+    float: left;
+}
+.foodImg {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+}
+
+.content {
+    width: 50%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+}
+
+.cashier {
+    border: #4a9466 2px solid;
+    background-color: #7cbe95;
+    color : #ffffff;
+    font-size: 30px;
+    padding : 10px;
+    width : 200px;
+    height : 70px;
+    margin-top: 20px;
+}
+
+.list-group {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    font-size : 30px;
+    /* margin-top : 2.5vw; */
+}
+
+.speech-bubble {
+    position: relative;
+    transform: translateY(-45px);
+    background: #7cbe95;
+    border-radius: 50%;
+    margin-top : 6%;
+    width : 25%;
+    height : 23%;
+    margin-left : 65%;
+    padding-top : 2%;
+    .qrcode {
+        position : absolute;
+        transform: translate(-50%, 17%);
+        width : 7vw;
+        height : 7vw;
+    }
+    .scan{
+        position: absolute;
+        transform: translate(58%,328%)
+    }
+}
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 35px solid transparent;
+    border-top-color: #7cbe95;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -17.5px;
+    margin-bottom: -34px;
+}
+
+

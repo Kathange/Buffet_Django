@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 分析中 {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="App"> 
+            <div class="corners4">                
+                <img class="camera" src="{% static 'image/segmentFood.jpg' %}" /><br/>
+                
+                <div class="cirPos">
+                    <div class="preloader">Analyzing
+                        <div class="circ1"></div>
+                        <div class="circ2"></div>
+                        <div class="circ3"></div>
+                        <div class="circ4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,26 @@
+
+.home {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    .home_background {
+        width: 100%;
+        filter:brightness(40%);
+    }
+    .flowBtn {
+        letter-spacing: 10px;
+        position: absolute;
+        top:50%;
+        left: 20%;
+    }
+    .title {
+        letter-spacing: 10px;
+        position: absolute;
+        top:30%;
+        left: 10%;
+        font-size: 7vw;
+        color: white;
+    }
+}
+
+
