@@ -1,0 +1,69 @@
+/* 主頁面 */
+.home {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    .home_background {
+        width: 100%;
+        filter:brightness(40%);
+        margin-top: -8px;
+    }
+    /* 登入按鈕 */
+    .flowBtnLogin {
+        letter-spacing: 10px;
+        position: absolute;
+        top:50%;
+        left: 20%;
+    }
+    /* 註冊按鈕 */
+    .flowBtnLogup {
+        letter-spacing: 10px;
+        position: absolute;
+        top:50%;
+        left: 25%;
+    }
+    /* 3D智助餐標題 */
+    .title {
+        letter-spacing: 10px;
+        position: absolute;
+        top:25%;
+        left: 10%;
+        font-size: 7vw;
+        color: white;
+    }
+}
+
+/* 關於 */
+.about {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    /* 關於的標題 */
+    .title {
+        letter-spacing: 10px;
+        position: relative;
+        top:20%;
+        left: 10%;
+        font-size: 7vw;
+        color: black;
+    }
+    /* 介紹 */
+    .aboutus {
+        position: relative;
+        top:30%;
+        left: 10%;
+        font-size: 20px;
+        color: black;
+        width: 80%;
+    }
+}
+
+.homeBtn {
+    color:white;
+    background-color: #81ce8fd4;
+}
+.homeBtn:hover {
+    color: black;
+    background-color: white;
+}
+

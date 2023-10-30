@@ -1,0 +1,84 @@
+{% extends "baseBuyer.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="newbuyerData.css">
+    </head>
+    <body>
+        {% block title %} 買家資訊 {% endblock %}
+        {% block content %}
+
+        <!--  if request.user.is_authenticated  -->
+        <!-- <div class="dataNav">
+            <ul class="nav"> 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">會員資料</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'changePW' %}">更改密碼</a></li>
+                        <li><a class="dropdown-item" href="/">登出</a></li>
+                        <li><a class="dropdown-item" href="/">回首頁</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav justify-content-end"> 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">歷史紀錄</a>
+                    <ul class="dropdown-menu">
+                        調資料庫
+                        <li><a class="dropdown-item" href="#">date1</a></li>
+                        <li><a class="dropdown-item" href="#">date2</a></li>
+                        <li><a class="dropdown-item" href="#">date3</a></li>
+                    </ul>
+                </li>
+            </ul> 
+        </div> -->
+
+        <div class="App">
+            
+            
+                
+              
+                <!-- 調資料庫 -->
+                <div class="history-list">
+                    {% for rec in records %}
+                 <div class="buyerData">
+                    <ul class="list-group">
+                        <li>{{ rec.eat_date }}{{ rec.eat_time }}</li>
+                        <li><div>總熱量：</div><div>{{ rec.total_cal }} Cal</div></li>
+                        <li><div>總價錢：</div><div>{{ rec.cost }} dollar</div></li>
+                        <div>
+                            <a href="{% url 'nutritionInfo' %}" target=_blank>...more</a>
+                        </div>
+                    </ul>  
+                </div>
+                {% endfor %}  
+                <div class="buyerData">
+                    
+                    <ul class="list-group">
+                        <li>{{ rec.eat_date }} {{ rec.eat_time }}</li>
+                        <li><div>總熱量：</div><div>{{ rec.total_cal }} Cal</div></li>
+                        <li><div>總價錢：</div><div>{{ rec.cost }} dollar</div></li>
+                        <div>
+                            <a href="{% url 'nutritionInfo' %}" target=_blank>...more</a>
+                        </div>    
+                    </ul>
+                    
+                    
+                </div>
+
+
+                </div>  
+                
+              
+                
+        <!--  endif  -->
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+
+
