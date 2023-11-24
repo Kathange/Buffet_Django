@@ -1,0 +1,67 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 營養素詳細資訊 {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="App">
+            <div class="corners4">
+                <hr class="hr1">
+                <!-- 環圈圖 -->
+                <img class="donutChart" src="{% static 'image/donut_chart.png' %}" />
+                
+                <!-- 詳細資訊，需調資料庫，透過 {{for...}} -->
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>熱量 (Cal)</th>
+                        <th>蛋白質 (g)</th>
+                        <th>脂質 (g)</th>
+                        <th>碳水化合物 (g)</th>
+                        <th>纖維素 (g)</th>
+                    </tr>
+                    <tr>
+                        <td>noodle</td>
+                        <td>200</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>60</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>rice</td>
+                        <td>200</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>60</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <th>總重量</th>
+                        <td>400</td>
+                        <td>40</td>
+                        <td>80</td>
+                        <td>120</td>
+                        <td>160</td>
+                    </tr>
+                </table>
+                
+                <br>
+                <!-- <a href="{% url 'loginData' %}">
+                    <button class="loginBtn">登入儲存</button>
+                </a> -->
+                <hr class="hr2">
+              
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+

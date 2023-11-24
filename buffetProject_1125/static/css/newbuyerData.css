@@ -1,0 +1,23 @@
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding :0;
+    box-sizing: border-box;
+}
+
+.history-list{
+    width: 700px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buyerData{
+    background-color: #eaeaea;
+    width: 100%;
+    height: 50px;
+}
+
