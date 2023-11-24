@@ -1,0 +1,29 @@
+是否算出正確的體積      ok
+
+把體積存進csv檔         ok
+
+叫出csv檔並成功放進變數中       ok
+
+拍照後的照片存進tmp/color.jpg 而不是static中        ok
+
+是否正確分割(需要nvidia顯卡)(記得把unet.py中的註解刪掉再做才會有cuda)       ok
+
+cashier.html要叫的照片檔是result中的blend_img.png 而不是static中        ok
+
+算出正確體積        ok
+
+頁面切換(camera -> analysis -> cashier)
+
+寫入資料庫
+
+上註解，該刪的都刪掉
+
+
+
+有餘力再做：
+
+增加搜尋功能
+
+改成瑄做的logo
+
+精進css讓畫面更好看或流暢

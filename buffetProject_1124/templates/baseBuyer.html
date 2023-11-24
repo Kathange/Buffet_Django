@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        
+        <!-- % block <name> % : 定義一個區間，讓其他繼承者在去做更動 -->
+        <title> {% block title %} {% endblock %} </title>
+
+        <!-- 呼叫 bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Add additional CSS in static file (增加自訂的css) -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/interface.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/home.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/camera.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/cashier.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/nutritionInfo.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/buyerSeller.css' %}" >
+
+        <link rel="icon" type="image/x-icon" href="{% static 'image/logo.ico' %}">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'image/logo.ico' %}">
+    </head>
+    <body>
+        <!-- 最上排narbar -->
+        <nav class="navbar navbar-expand-md bg-light navbar-light navbar-fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+              <img src="{% static 'image/logo.png' %}" alt="Avatar Logo" style="width:5vw; margin:5px;" class="rounded-pill"> 
+            </a>
+            
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse nav justify-content-end" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'buyerData' %}">歷史紀錄</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'changePW' %}">更改密碼</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">登出</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+          
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
+

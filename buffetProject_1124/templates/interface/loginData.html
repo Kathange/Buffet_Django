@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 會員登入 {% endblock %}
+        {% block content %}
+
+        <div class="App">
+            <div class="cornerslog">
+                <hr class="hr1" />
+                <form method="post", class="login">
+                    <input name="account" required, id="account", placeholder="帳號：", type="text" /><br/>
+                    <input name="password" required, id="password", placeholder="密碼：", type="password" /><br/>
+                    {% if error_msg %}
+                        <div>{{ error_msg }}</div>
+                    {% endif %}
+                    <a href="{% url 'buyerData' %}">
+                        <button type="submit">登入</button><br/>
+                    </a>
+                    <a href="{% url 'logUpData' %}">
+                        <button>註冊</button><br/>
+                    </a>
+                </form>
+
+                <!-- 建立資料庫後用上面的(多了form標籤)，下面就不用了 -->
+                <!-- <div class="login">
+                    <input placeholder="帳號：" /><br/>
+                    <input placeholder="密碼："  type="password" /><br/>
+                    <a href="{% url 'buyerData' %}">
+                        <button type="submit">登入</button><br/>
+                    </a>
+                    <a href="{% url 'logUpData' %}">
+                        <button>註冊</button><br/>
+                    </a>
+                </div> -->
+                
+                <hr class="hr2" />
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+

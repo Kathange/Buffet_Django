@@ -1,0 +1,58 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 收銀區 {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="App">
+            
+            <div class="corners4">
+                <div class="menu">
+                    <img class="foodImg" src="{% static 'image/screenShot.jpg' %}" />
+                </div>
+                
+                <div class="content">
+                    <div class="cashier">收銀區</div>
+                    
+                    <ul class="list-group">
+                        <li><div>重量：</div>{{ weight }} <div>公克</div></li>
+                        <li><div>熱量：</div>{{ calories }} <div>大卡</div></li>
+                        <li><div>價錢：</div>{{ cost }} <div>元</div></li>
+                    </ul>
+                    
+
+                    <!-- {% for plist in user_list %}
+                    <li>重量：{{ plist.user_id }} 公克</li>
+                    <li>熱量：{{ plist.account }} 大卡</li>
+                    <li>價錢：{{ plist.password }}</li>
+                    <li>{{ plist.customer }}</li>
+                    {% endfor %} -->
+
+                    <div class="speech-bubble">
+                        <!-- 還不能讓其他裝置掃描，但是可以直接點qrcode進到下一個頁面 -->
+                        <a href="{% url 'loginData' %}">
+                            <img class="qrcode" src="{% static 'image/qrcode.png' %}" />
+                        </a>
+                        
+                        <br/>
+                        <!-- 辰 -->
+                        <!-- <p class="scan">Scan me</p> -->
+                    </div>
+                
+                </div>
+              
+            </div>
+            -
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+
+
