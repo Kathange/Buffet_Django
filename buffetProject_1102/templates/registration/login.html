@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} Login {% endblock %}
+        {% block content %}
+        <div class="App">
+            <!-- 標題 -->
+            <h1 class="Buf-header">請輸入賣家帳密</h1>
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>{{ form.username.label_tag }}</td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password.label_tag }}</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+                <button type="submit">login</button>
+            </form>
+        </div>
+        {% endblock content %}
+    </body>
+</html>

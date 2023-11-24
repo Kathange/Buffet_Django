@@ -1,0 +1,39 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 攝影機 {% endblock %}
+        {% block content %}
+
+        <div class="App"> 
+            <div class="corners4">                
+                <img class="camera" src="{% url 'FoodVedioFeed' %}" /><br/>
+                <form method="post">
+                <!-- <form method="post" action="{% url 'analysis' %}"> -->
+                    <button id="startBtn" class="startBtn">Capture</button>
+                    <input type="hidden" id="clickCount" name="click_count" value="0">
+                    <!-- <button id="startBtn" type="submit">Capture</button> -->
+                </form>
+            </div>
+        </div>
+        <script>
+            // document.getElementById('startBtn').addEventListener('click',fetch('/interface/gen/'), {method: 'POST'})
+            var clickcount = 0;
+            document.getElementById("startBtn").addEventListener("click", function(){
+                clickcount++;
+                if (clickcount === 2) {
+                    clickcount = 0;
+                    // window.location.href = " url interface\\analysis.html ";
+                    window.location.href = "http://127.0.0.1:8000/interface/analysis";
+                } else {
+                    event.preventDefault();
+                }
+            });
+        </script>
+        {% endblock %}
+    </body>
+</html>

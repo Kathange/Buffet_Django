@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} <!-- 相當於「<title> 標題 </title>」，直接打標題就好--> {% endblock %}
+        {% block content %}
+
+        <!-- 相當於「<body> 一堆程式碼... </body>」 -->
+        
+        {% endblock %}
+    </body>
+</html>
+
+<!-- 不用再引入任何東西，因為在base.html就已經引入，它會自己去base.html抓引入的檔案 -->
