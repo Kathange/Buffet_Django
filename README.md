@@ -12,3 +12,5 @@ buffetProject_1023：改了網頁外觀，加上資料庫連接(有更改http/..
 buffetProject_1024：更新資料庫，確認可連接資料庫並顯示到網頁上
 
 buffetProject_1031：多了很多，目前上傳檔案數量限制的關係，所以沒有包含unet_sample整個資料夾
+
+buffetProject_1124：完整版，可以連接camera，算體積，做語意分割
