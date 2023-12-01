@@ -14,3 +14,5 @@ buffetProject_1024：更新資料庫，確認可連接資料庫並顯示到網�
 buffetProject_1031：多了很多，目前上傳檔案數量限制的關係，所以沒有包含unet_sample整個資料夾
 
 buffetProject_1124：完整版，可以連接camera，算體積，做語意分割
+
+buffetProject_1125：完整精簡版，demo可以先用這個撐
