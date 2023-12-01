@@ -1,0 +1,12 @@
+/* 最上排narbar */
+
+.nav-item, .nav .show>.nav-link {
+    font-size: 30px;
+    margin: 5px;
+}
+
+.container-fluid {
+    background:#81ce8fd4;
+    margin-top: -10px;
+    height: 60px;
+}
