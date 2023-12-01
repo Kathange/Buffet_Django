@@ -16,3 +16,5 @@ buffetProject_1031：多了很多，目前上傳檔案數量限制的關係，�
 buffetProject_1124：完整版，可以連接camera，算體積，做語意分割
 
 buffetProject_1125：完整精簡版，demo可以先用這個撐
+
+buffetProject_1201：2023資創競賽demo介面版
