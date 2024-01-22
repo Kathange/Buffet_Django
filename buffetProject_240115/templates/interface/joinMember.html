@@ -1,0 +1,174 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} Join Member {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">
+                    Join Us
+                </div>
+                <br>
+                <div class="menu">
+                    <p class="introduce fontStyle">Hold your card against the card reader</p>
+                    <img class="joinMemPic" src="{% static 'image/RFID.gif' %}" />
+                    <!-- <a href="{% url 'readRFID' %}" ></a> -->
+                    <div id="rfidResult"></div>
+                </div>
+
+                <div class="content">
+                    <p class="introduce fontStyle">Read QR Code to join line member</p>
+                    <img class="joinMemPic" src="{% static 'image/qrcode.png' %}" />
+                    <a href="#" ></a>
+                </div>
+
+                <!-- <a href="{% url 'camera' %}" >
+                    <button type="button" class="homeBtn fontStyle">No Thanks</button>
+                </a>
+                <a href="{% url 'camera' %}" >
+                    <button type="button" class="homeBtn fontStyle">Open Depth Camera</button>
+                </a> -->
+                <a href="{% url 'camera' %}">
+                    <button id="toggleButton" type="button" class="joinMemBtn fontStyle">No Thanks</button>
+                </a>
+                <div id="memberJoin"></div>
+            </div>
+        </div>
+
+        <!-- Add this script at the end of the body section -->
+        <!-- <script>
+            // Flag to control continuous reading
+            var continuousReadingFlag = true;
+        
+            // Function to start reading RFID continuously
+            function startContinuousReading() {
+                setInterval(function () {
+                    if (continuousReadingFlag) {
+                        // Make an AJAX request to the read_rfid endpoint
+                        fetch("{% url 'readRFID' %}")
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log(data.uid);
+                                if(data.uid === 'none'){
+                                    document.getElementById('rfidResult').innerText = "This card has been tapped!";
+                                }
+                                else{
+                                    // Update the result in the HTML
+                                    document.getElementById('rfidResult').innerText = "Read UID: " + data.uid;
+                                }
+                                
+                                // Check the continue_reading flag
+                                if (!data.flag) {
+                                    // Stop continuous reading if continue_reading is false
+                                    continuousReadingFlag = false;
+                                    updateButton();
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                        
+                        // fetch("{ url 'getUserBool' }")
+                        //     .then(response => response.json())
+                        //     .then(data => {
+                        //         // Check the continue_reading flag
+                        //         if (data.Thanks !== 'none') {
+                        //             // Stop continuous reading if continue_reading is false
+                        //             continuousReadingFlag = false;
+                        //             updateButton();
+                        //         }
+                        //     })
+                        //     .catch(error => console.error('Error:', error));
+                    }
+                }, 1000); // Set the interval to your desired frequency (in milliseconds)
+            }
+
+            // Function to update the button text based on the flag
+            function updateButton() {
+                var button = document.getElementById('toggleButton');
+                button.innerText = continuousReadingFlag ? 'No Thanks' : 'Open Depth Camera';
+                var member = document.getElementById('memberJoin');
+                member.innerText = continuousReadingFlag ? '' : 'Join Success!';
+            }
+        
+            // Call the function when the page loads
+            window.onload = function () {
+                startContinuousReading();
+                updateButton();
+            };
+        </script> -->
+
+
+        <script>
+            // Flag to control continuous reading
+            var continuousReadingFlag = true;
+        
+            // Function to start reading RFID continuously
+            function startContinuousReading() {
+                if (continuousReadingFlag) {
+                    // Make an AJAX request to the read_rfid endpoint
+                    fetch("{% url 'readRFID' %}")
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data.uid);
+                            if(data.uid === 'none'){
+                                document.getElementById('rfidResult').innerText = "This card has been tapped!";
+                            }
+                            else{
+                                // Update the result in the HTML
+                                document.getElementById('rfidResult').innerText = "Read UID: " + data.uid;
+                            }
+                            
+                            // Check the continue_reading flag
+                            if (!data.flag) {
+                                console.log("flag in");
+                                // // Stop continuous reading if continue_reading is false
+                                // continuousReadingFlag = false;
+                                print("flag in")
+                                updateButton();
+                                fetch("{% url 'getUserBool' %}")
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        console.log('getUserBool in');
+                                        // Check the continue_reading flag
+                                        if (data.Thanks === '1') {
+                                            // Stop continuous reading if continue_reading is false
+                                            continuousReadingFlag = false;
+                                            updateButton();
+                                        }
+                                    })
+                                    .catch(error => console.error('Error:', error));
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    
+                    
+                }
+            }
+
+            // Function to update the button text based on the flag
+            function updateButton() {
+                var button = document.getElementById('toggleButton');
+                button.innerText = continuousReadingFlag ? 'No Thanks' : 'Open Depth Camera';
+                var member = document.getElementById('memberJoin');
+                member.innerText = continuousReadingFlag ? '' : 'Join Success!';
+            }
+        
+            // Call the function when the page loads
+            window.onload = function () {
+                startContinuousReading();
+                updateButton();
+            };
+        </script>
+
+        {% endblock %}
+    </body>
+</html>
+
+
+

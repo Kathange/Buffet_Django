@@ -1,0 +1,111 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} Depth Camera {% endblock %}
+        {% block content %}
+
+        {% load static %}
+        <div class="App forNav"> 
+            <div class="corners4">  
+                <!-- 顯示拍照畫面 -->
+                <div class="capture" id="capture" style="display: inline;">
+                    <!-- <img class="camera" src="{% static 'image/screenShot.jpg' %}" /><br/> -->
+                    <img class="camera" src="{% url 'FoodVedioFeed' %}" /><br/>
+                    <form method="post">
+                        <button id="startBtn" class="startBtn fontStyle">Capture</button>
+                    </form>
+                </div>
+
+                <!-- 顯示分析畫面 -->
+                <div class="analysis" id="analysis" style="display: none;">
+                    <div id="imageContainer">
+                        <!-- 圖片將會顯示在這 -->
+                    </div>
+                    
+                    <!-- 我需要把即時生成的segmrent img copy 到static -->
+                    <div class="cirPos">
+                        <div class="preloader fontStyle">Analyzing
+                            <div class="circ1"></div>
+                            <div class="circ2"></div>
+                            <div class="circ3"></div>
+                            <div class="circ4"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <script>
+            function checkFileExistence(filePath, callback) {
+                var img = new Image();
+                img.onload = function() {
+                    // 文件存在
+                    callback(true);
+                };
+                img.onerror = function() {
+                    // 文件不存在
+                    callback(false);
+                };
+                img.src = filePath;
+            }
+            function waitForFile(filePath, callback) {
+                function checkAndContinue() {
+                    checkFileExistence(filePath, function(exists) {
+                        if (exists) {
+                            // 文件存在，执行你的操作
+                            images = "{% static 'image/blend_img.png' %}";
+                            imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+                            // 文件存在时，等待
+                            setTimeout(function() {
+                                callback();
+                            }, 8000);
+                        } else {
+                            // 文件不存在，继续等待
+                            setTimeout(checkAndContinue, 1000); // 1 second delay between checks
+                        }
+                    });
+                }
+                // 开始检测
+                checkAndContinue();
+            }
+
+
+            // 获取图片容器和按钮
+            var imageContainer = document.getElementById('imageContainer');
+
+            document.getElementById("startBtn").addEventListener("click", function(){
+                // Show capture and hide analysis initially
+                document.getElementById("capture").style.display = "inline";
+                document.getElementById("analysis").style.display = "none";
+
+                images = "{% static 'image/screenShot.jpg' %}";
+                imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+
+                setTimeout(function() {
+                    document.getElementById("capture").style.display = "none";
+                    document.getElementById("analysis").style.display = "inline";
+                    // setTimeout(function() {
+                    //     images = "{% static 'image/blend_img.png' %}";
+                    //     imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+                    //     waitForFile(filePath, function() {
+                    //         // 文件存在时，等待3秒
+                    //         console.log("wait 3 seconds");
+                    //         setTimeout(function() {}, 3000);
+                    //     });
+                    // }, 8000);
+                    var filePath = "{% static 'image/blend_img.png' %}";
+                    waitForFile(filePath, function() {
+                        // 这里可以放置在文件存在后的操作
+                    });
+                }, 100);
+            });
+        </script>
+        {% endblock %}
+    </body>
+</html>

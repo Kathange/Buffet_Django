@@ -1,0 +1,78 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} Nutritional information details {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <hr class="hrN1">
+                <!-- 環圈圖 -->
+                <img class="donutChart" src="{% static 'image/donut_chart_seller.png' %}" />
+                
+                <!-- 詳細資訊，需調資料庫，透過 {{for...}} -->
+                <table>
+                    <tr>
+                        <th>Foods</th>
+                        <th>Weight (g)</th>
+                        <th>Calories (Kcal)</th>
+                        <th>Protein (g)</th>
+                        <th>Carbohydrate (g)</th>
+                        <th>Fat (g)</th>
+                    </tr>
+                    {% for list in show %}
+                    <tr>
+                        <td> {{ list.0 }} </td>
+                        <td> {{ list.1 }} </td>
+                        <td> {{ list.2 }} </td>
+                        <td> {{ list.3 }} </td>
+                        <td> {{ list.4 }} </td>
+                        <td> {{ list.5 }} </td>
+                    </tr>
+                    {% endfor %}
+                    
+                    <!-- <tr>
+                        <td>noodle</td>
+                        <td>200</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>60</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>rice</td>
+                        <td>200</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>60</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <th>總重量</th>
+                        <td>400</td>
+                        <td>40</td>
+                        <td>80</td>
+                        <td>120</td>
+                        <td>160</td>
+                    </tr> -->
+                </table>
+                
+                <br>
+                <!-- <a href="{% url 'loginData' %}">
+                    <button class="loginBtn">登入儲存</button>
+                </a> -->
+                <hr class="hrN2">
+              
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+
+

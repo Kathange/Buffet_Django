@@ -1,0 +1,35 @@
+{% extends "baseSeller.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 賣家資訊 {% endblock %}
+        {% block content %}
+        <div class="App forNav">
+            <div class="corners4">
+                <hr class="hr1" />
+                
+                <!-- 調資料庫 -->
+                <div class="detailed">
+                    {% for rec in records %}
+                    <ul class="list-group">
+                        <li><div>{{ rec.eat_date }}</div></li>
+                        <li><div>總重量：</div><div>{{ rec.total_weight }} g</div></li>
+                        <li><div>總價錢：</div>{{ rec.cost }} dollar</li>
+                        <div>
+                            <a href="{% url 'seller_info' %}" target=_blank>...more</a>
+                        </div>
+                    </ul>
+                    {% endfor %}
+                </div>
+                
+                <hr class="hr2" />
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>
+

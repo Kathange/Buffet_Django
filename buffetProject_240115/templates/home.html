@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% block title %} 3D CAFETERIA {% endblock %}
+        {% block content %}
+        {% load static %}
+
+        <div class="home">
+            <img src="{% static 'image/home_backgroundOri.png' %}" class="home_background" />
+            <p class="title fontStyle" >3D CAFETERIA</p>
+            <!-- <a href="{% url 'loginData' %}" class="flowBtnLogin">
+                <button type="button" class="homeBtn">登入</button>
+            </a>
+            <a href="{% url 'logUpData' %}" class="flowBtnLogup">
+                <button type="button" class="homeBtn">註冊</button>
+            </a> -->
+            <!-- <a href="{% url 'camera' %}" class="flowBtnCamera">
+                <button type="button" class="homeBtn fontStyle">Open Depth Camera</button>
+            </a> -->
+            <a href="{% url 'joinMember' %}" class="flowBtnCamera">
+                <button type="button" class="homeBtn fontStyle">Join Member</button>
+            </a>
+        </div>
+
+        
+        <script>
+            function startDeleteOnLoad() {
+                // Make a one-time AJAX request to the delete endpoint
+                fetch("{% url 'delete' %}")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                    })
+                    .catch(error => console.error('Fetch Error:', error));
+            }
+        
+            // Call the function when the page loads
+            window.onload = startDeleteOnLoad;
+        </script>        
+
+        {% endblock %}
+    </body>
+</html>

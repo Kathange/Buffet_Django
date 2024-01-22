@@ -1,0 +1,42 @@
+/* 最上排narbar */
+
+.nav-item, .nav .show>.nav-link {
+    font-size: 20px;
+    margin: 10px;
+    border-color: rgb(66, 64, 64);
+    padding: 8px 12px;
+    color:rgb(66, 64, 64);
+    border-radius: 10px;
+}
+
+/* .nav-item:hover, .nav .show>.nav-link {
+    color: white;
+    background-color: #8ab191d4;
+    cursor: pointer;
+} */
+
+.container-fluid {
+    background:#81ce8fd4;
+    height: 60px;
+}
+
+.navbar {
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+.fontStyle{
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+
+@media (max-width: 767px) {
+    .bgColor {
+        background-color: #81ce8fd4;
+    }
+}
+
+.forNav {
+    margin-top: 80px;
+}

@@ -1,0 +1,7 @@
+settings.py 32行 ALLOWED_HOSTS變數
+
+views.py 100行 camera函式中的redirect
+
+_3D_readRFID.py 87行 指向linebot
+
+_3D_writeDB.py 273行 指向linebot
