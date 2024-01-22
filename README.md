@@ -18,3 +18,5 @@ buffetProject_1124：完整版，可以連接camera，算體積，做語意分�
 buffetProject_1125：完整精簡版，demo可以先用這個撐
 
 buffetProject_1201：2023資創競賽demo介面版
+
+buffetProject_240115：與line連接完整版(未精簡，有很多冗餘)
