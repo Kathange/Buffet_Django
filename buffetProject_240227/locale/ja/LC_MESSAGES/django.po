@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-23 19:33+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\buffetProject\settings.py:167
+msgid "English"
+msgstr "English"
+
+#: .\buffetProject\settings.py:168
+msgid "French"
+msgstr "Français"
+
+#: .\buffetProject\settings.py:169
+msgid "Spanish"
+msgstr "español"
+
+#: .\buffetProject\settings.py:170
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: .\buffetProject\settings.py:171
+msgid "Simplified Chinese"
+msgstr "简体中文"
+
+#: .\buffetProject\settings.py:172
+msgid "Japanese"
+msgstr "日本語"
+
+#: .\buffetProject\settings.py:173
+msgid "Korean"
+msgstr "한국어"
+
+#: .\buffetProject\settings.py:174
+msgid "German"
+msgstr "Deutsch"
+
+#: .\buffetProject\settings.py:175
+msgid "Italian"
+msgstr "Italiano"
+
+#: .\templates\baseBuyer.html:37 .\templates\baseSeller.html:37
+#: .\templates\home.html:7 .\templates\home.html:15
+msgid "3D CAFETERIA"
+msgstr "3D カフェテリア"
+
+#: .\templates\home.html:27 .\templates\interface\joinMember.html:7
+msgid "Join Member"
+msgstr "メンバーに参加する"
+
+#: .\templates\interface\about.html:7
+msgid "ABOUT US"
+msgstr "私たちについて"
+
+#: .\templates\interface\about.html:14
+msgid "ABOUT"
+msgstr "について"
+
+#: .\templates\interface\about.html:16
+msgid ""
+"外食已經成為許多人生活中不可或缺的一部分，而自助餐因其多樣的菜色和便利的用餐"
+"方式，成為一個受歡迎的選擇。<br>且隨著人們對健康飲食的關注不斷增加，如何在自"
+"助餐餐廳中識別所夾的菜色種類、計算份量、並評估熱量和營養成分，成為一件重要的"
+"任務。<br> 透過3D智助餐系統，不僅可以加速結帳的過程，還可以幫助店家更好地管理"
+"菜色、人力和食材數量。<br>對於消費者來說，這個系統還能提供每一餐的資訊，讓他"
+"們更好的了解自己的飲食習慣，有助於健康飲食。<br>我們希望這個系統能夠成為業者"
+"和消費者雙贏的飲食環境。"
+msgstr ""
+"外食は多くの人々の生活に欠かせないものとなっており、ビュッフェは種類の豊富さと便利な食事で知られています。"
+"そうですね、人気の選択肢になりつつあります。<br>健康的な食事に対する人々の関心が高まり続けるにつれて、自分なりの方法で食べる方法が増えてきました。"
+"ケータリング レストランで提供される料理の種類を特定し、分量を計算し、カロリーと栄養成分を評価することが重要になっています。"
+"タスク。<br> 3D スマート ダイニング システムを通じて、チェックアウト プロセスをスピードアップできるだけでなく、店舗の管理を改善することもできます。"
+"料理、人手、食材の量。<br>消費者にとって、このシステムは各食事に関する情報も提供できるため、消費者は安心して利用できます。"
+"人々は自分の食生活をより深く理解できるようになり、健康的な食事に役立ちます。<br>私たちはこのシステムが業界のリーダーになることを願っています。"
+"消費者にとってWin-Winの食環境。"
+
+#: .\templates\interface\camera.html:7
+msgid "Depth Camera"
+msgstr "深度カメラ"
+
+#: .\templates\interface\camera.html:20
+msgid "Capture"
+msgstr "取得"
+
+#: .\templates\interface\camera.html:32
+msgid "Analyzing"
+msgstr "分析中"
+
+#: .\templates\interface\cashier.html:7 .\templates\interface\cashier.html:20
+msgid "Cashier"
+msgstr "レジ"
+
+#: .\templates\interface\cashier.html:22
+msgid "Weight："
+msgstr "重さ："
+
+#: .\templates\interface\cashier.html:22
+msgid "gram(s)"
+msgstr "グラム"
+
+#: .\templates\interface\cashier.html:23
+msgid "Calories："
+msgstr "エネルギー："
+
+#: .\templates\interface\cashier.html:23
+msgid "cal(s)"
+msgstr "カロリー"
+
+#: .\templates\interface\cashier.html:24
+msgid "Price："
+msgstr "価格："
+
+#: .\templates\interface\cashier.html:24
+msgid "dollar(s)"
+msgstr "NTD"
+
+#: .\templates\interface\joinMember.html:17
+msgid "Join Us"
+msgstr "参加しませんか"
+
+#: .\templates\interface\joinMember.html:21
+msgid "Hold your card against the card reader"
+msgstr "カードをカードリーダーにかざします"
+
+#: .\templates\interface\joinMember.html:28
+msgid "Read QR Code to join line member"
+msgstr "QRコードを読み取ってLINEメンバーに参加"
+
+#: .\templates\interface\joinMember.html:158
+msgid "No Thanks"
+msgstr "結構です"
+
+#: .\templates\interface\joinMember.html:158
+msgid "Open Depth Camera"
+msgstr "オープンデプスカメラ"
+
+#: .\templates\interface\joinMember.html:160
+msgid "Join Success!"
+msgstr "参加成功!"

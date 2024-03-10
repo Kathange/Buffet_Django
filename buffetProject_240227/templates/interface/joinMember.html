@@ -1,0 +1,112 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% trans "Join Member" %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">
+                    {% trans "Join Us" %}
+                </div>
+                <br>
+                <div class="joinCenter" id="menu" style="display: inline;">
+                    <p class="introduce fontStyle"> {% trans "Hold your card against the card reader" %} </p>
+                    <img class="joinMemPic" src="{% static 'image/RFID.gif' %}" />
+                    <div id="rfidResult"></div>
+                </div>
+
+                <div class="joinCenter" id="content" style="display: none;">
+                    <p class="introduce fontStyle"> {% trans "Read QR Code to join line member" %} </p>
+                    <img class="joinMemPic" src="{% static 'image/qrcode.png' %}" />
+                    <div id="memberJoin"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(function(){
+                $(document).on('keydown', function(e){
+                    if (e.key === 's') {
+                        window.location.href = "/interface/camera";
+                    }
+                });
+            });
+            // Flag to control continuous reading
+            var continuousReadingFlag = true;
+        
+            // Function to start reading RFID continuously
+            function startContinuousReading() {
+                if (continuousReadingFlag) {
+                    // Make an AJAX request to the read_rfid endpoint
+                    fetch("{% url 'readRFID' %}")
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            if(data.uid === 'none'){
+                                document.getElementById('rfidResult').innerText = "This card has been tapped!";
+                                window.location.href = "/interface/camera";
+                            }
+                            else{
+                                // Update the result in the HTML
+                                document.getElementById("content").style.display = "inline";
+                                document.getElementById("menu").style.display = "none";
+                                document.getElementById('memberJoin').innerText = "Read UID: " + data.uid;
+                                
+                                // Stop continuous reading if continue_reading is false
+                                // continuousReadingFlag = false;
+                                // console.log("line");
+                                // fetch("{% url 'getUserBool' %}")
+                                //     .then(response => response.json())
+                                //     .then(data => {
+                                //         console.log('getUserBool in');
+                                //         console.log(data);
+                                //         // Check the continue_reading flag
+                                //         if (data.Thanks === '1') {
+                                //             // Stop continuous reading if continue_reading is false
+                                //             continuousReadingFlag = false;
+                                //             console.log('into camera');
+                                //             window.location.href = "/interface/camera";
+                                //         }
+                                //     })
+                                //     .catch(error => console.error('Error:', error));
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            }
+
+            // function startContinuousReading2(){
+            //     var xhr = new XMLHttpRequest();
+            //     xhr.open("GET", "{% url 'readRFID' %}", true);
+            //     xhr.onreadystatechange = function () {
+            //         if (xhr.readyState === 4 && xhr.status === 200) {
+            //             // 在这里处理从后端接收到的数据
+            //             var responseData = xhr.responseText;
+            //             console.log(responseData);
+            //             window.location.href = "/interface/camera";
+            //         }
+            //     };
+            //     xhr.send();
+            // }
+                
+            // Call the function when the page loads
+            window.onload = function () {
+                startContinuousReading();
+                // startContinuousReading2();
+            };
+        </script>
+
+        {% endblock %}
+    </body>
+</html>
+
+
+

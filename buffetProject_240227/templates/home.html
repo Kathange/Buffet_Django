@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% trans "3D CAFETERIA" %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="home">
+            <img src="{% static 'image/home_backgroundOri.png' %}" class="home_background" />
+            <p class="title fontStyle" >{% trans "3D CAFETERIA" %}</p>
+            
+            <a href="{% url 'joinMember' %}" class="flowBtnCamera">
+                <button type="button" class="homeBtn fontStyle">{% trans "Join Member" %}</button>
+            </a>
+        </div>
+
+        <script>
+            function startDeleteOnLoad() {
+                // Make a one-time AJAX request to the delete endpoint
+                fetch("{% url 'delete' %}")
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                    })
+                    .catch(error => console.error('Fetch Error:', error));
+            }
+            // Call the function when the page loads
+            window.onload = startDeleteOnLoad;
+            
+            $(document).ready(function(){
+                $(document).on('keydown', function(e){
+                    if (e.key === 's') {
+                        window.location.href = "/interface/joinMember";
+                    }
+                });
+            });
+        </script>        
+
+        {% endblock %}
+    </body>
+</html>
