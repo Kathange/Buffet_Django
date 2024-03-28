@@ -1,0 +1,39 @@
+{% extends "baseLine.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}校正{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">
+                    <!-- { trans "Join Us" } -->
+                    校正
+                </div>
+                <br>
+                <div class="capture" id="capture" style="display: inline;">
+                    <!-- <img class="camera" src="{% static 'image/qrcode.png' %}" /><br/> -->
+                    <img class="camera" src="{% url 'FoodVedioFeedCalib' %}" /><br/>
+                    <p class="introduce fontStyle"> 請將餐盤放入 </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $(document).on('keydown', function(e){
+                    if (e.key === 's') {
+                        window.location.href = "/";
+                    }
+                });
+            });
+        </script>
+        {% endblock %}
+    </body>
+</html>

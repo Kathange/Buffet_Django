@@ -1,0 +1,169 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% trans "Depth Camera" %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+
+        {% load static %}
+        <div class="App forNav"> 
+            <div class="corners4">  
+                <!-- 顯示拍照畫面 -->
+                <div class="capture" id="capture" style="display: inline;">
+                    <!-- <img class="camera" src="{% static 'image/screenShot.jpg' %}" /><br/> -->
+                    <img class="camera" src="{% url 'FoodVedioFeed' %}" /><br/>
+                    <form method="post" id="startForm" style="display: none;">
+                        <button id="startBtn" class="startBtn fontStyle">{% trans "Capture" %}</button>
+                    </form>
+                    <div id="isPlate"></div>
+                </div>
+
+                <!-- 顯示分析畫面 -->
+                <div class="analysis" id="analysis" style="display: none;">
+                    <div id="imageContainer">
+                        <!-- 圖片將會顯示在這 -->
+                    </div>
+                    
+                    <!-- 我需要把即時生成的segmrent img copy 到static -->
+                    <div class="cirPos">
+                        <div class="preloader fontStyle">{% trans "Analyzing" %}
+                            <div class="circ1"></div>
+                            <div class="circ2"></div>
+                            <div class="circ3"></div>
+                            <div class="circ4"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="analysisResult"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <script>          
+            function checkFileExistence(filePath, callback) {
+                var img = new Image();
+                img.onload = function() {
+                    // 文件存在
+                    callback(true);
+                };
+                img.onerror = function() {
+                    // 文件不存在
+                    callback(false);
+                };
+                img.src = filePath;
+            }
+            function waitForFile(rfidfilePath, filePath, callback) {
+                function checkAndContinue() {
+                    checkFileExistence(filePath, function(exists) {
+                        if (exists) {
+                            // 文件存在，执行你的操作
+                            images = "{% static 'image/blend_img.png' %}";
+                            imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+                            
+                            fetch(rfidfilePath, { method: 'HEAD' })
+                                .then(response => {
+                                    if (response.ok) {
+                                        analysisResult.innerHTML = "詳細營養資訊生成中";
+                                    } 
+                                    else {
+                                        analysisResult.innerHTML = "熱量 重量 價錢計算中";
+                                    }
+                                })
+                                .catch(error => console.error('Error:', error));
+
+                            // 文件存在时，等待
+                            setTimeout(function() {
+                                callback();
+                            }, 8000);
+                        } else {
+                            // 文件不存在，继续等待
+                            analysisResult.innerHTML = "語意分析中";
+                            setTimeout(checkAndContinue, 1000); // 1 second delay between checks
+                        }
+                    });
+                }
+                // 开始检测
+                checkAndContinue();
+            }
+
+
+            // 获取图片容器和按钮
+            var imageContainer = document.getElementById('imageContainer');
+            var analysisResult = document.getElementById('analysisResult');
+            var isPlate = document.getElementById('isPlate');
+            var plateCount = 5;
+            
+            function detectCapture(){
+                console.log("detectCapture");
+                fetch("{% url 'capture' %}")
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('capture in');
+                        console.log(data);
+                        // Check the continue_reading flag
+                        if (data.capture === 'yes') {
+                            // Stop continuous reading if continue_reading is false
+                            console.log('into capture');
+                            // window.location.href = "/interface/camera";
+                            document.getElementById("startForm").submit();
+                            setTimeout(function(){
+                                // Show capture and hide analysis initially
+                                document.getElementById("capture").style.display = "inline";
+                                document.getElementById("analysis").style.display = "none";
+
+                                images = "{% static 'image/screenShot.jpg' %}";
+                                imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+
+                                setTimeout(function() {
+                                    document.getElementById("capture").style.display = "none";
+                                    document.getElementById("analysis").style.display = "inline";
+                                    // setTimeout(function() {
+                                    //     images = "{% static 'image/blend_img.png' %}";
+                                    //     imageContainer.innerHTML = `<img src="${images}" alt="Image" class="camera">`;
+                                    //     waitForFile(filePath, function() {
+                                    //         // 文件存在时，等待3秒
+                                    //         console.log("wait 3 seconds");
+                                    //         setTimeout(function() {}, 3000);
+                                    //     });
+                                    // }, 8000);
+                                    var filePath = "{% static 'image/blend_img.png' %}";
+                                    const rfidfilePath = './static/file/rfid.txt';
+                                    waitForFile(rfidfilePath, filePath, function() {
+                                        // 这里可以放置在文件存在后的操作
+                                    });
+                                }, 100);
+                            }, 2000);
+                        }
+                        else{
+                            setTimeout(function() {
+                                console.log("continue detect");
+                                if(data.distance === 'big'){
+                                    isPlate.innerHTML = "請將餐盤放入";
+                                    plateCount = 5;
+                                }
+                                else{
+                                    isPlate.innerHTML = "餐盤將於 " + plateCount + " 秒後擷取畫面，請勿移動餐盤";
+                                    plateCount--;
+                                }
+                                detectCapture();
+                            }, 1000);
+                            
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            // Call the function when the page loads
+            window.onload = function () {
+                detectCapture();
+            };
+        </script>
+        {% endblock %}
+    </body>
+</html>
+
