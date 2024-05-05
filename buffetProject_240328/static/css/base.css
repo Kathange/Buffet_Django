@@ -1,0 +1,48 @@
+/* 最上排narbar */
+
+.nav-item, .nav .show>.nav-link {
+    font-size: 20px;
+    margin: 10px;
+    border-color: rgb(66, 64, 64);
+    padding: 8px 12px;
+    color:rgb(66, 64, 64);
+    border-radius: 10px;
+}
+
+/* .nav-item:hover, .nav .show>.nav-link {
+    color: white;
+    background-color: #8ab191d4;
+    cursor: pointer;
+} */
+
+.container-fluid {
+    background:#81ce8fd4;
+    height: 60px;
+}
+
+.navbar {
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+.fontStyle{
+    /* font-family: "Times New Roman", Times, serif; */
+    /* font-family: '教育部標準楷書', 'DFKai-SB', 'Microsoft JhengHei', 微軟正黑體, sans-serif; */
+    font-family : '思源宋體', 'Source Han Serif TC', 'Microsoft JhengHei', 微軟正黑體, sans-serif;
+}
+
+
+
+@media (max-width: 767px) {
+    .bgColor {
+        background-color: #81ce8fd4;
+    }
+    .navbar-collapse, .nav .show>.nav-link {
+        display: flex !important;
+        flex-basis: auto;
+    }
+}
+
+.forNav {
+    margin-top: 80px;
+}

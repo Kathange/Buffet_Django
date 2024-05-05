@@ -1,0 +1,14 @@
+settings.py 32行 ALLOWED_HOSTS變數
+
+views.py 53行 camera函式中的redirect
+
+views.py 71行 指向linebot
+
+_3D_readRFID.py 102行 指向linebot
+
+_3D_readRFID.py 115行 指向linebot
+
+_3D_writeDB.py 280行 指向linebot
+
+
+ngrok : C:\Users\29191\AppData\Local\ngrok\ngrok.yml

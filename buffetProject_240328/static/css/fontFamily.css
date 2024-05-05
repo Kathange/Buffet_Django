@@ -1,0 +1,22 @@
+/* 共用样式 */
+.common-style {
+    /* 共用样式的定义 */
+    font-family: "Times New Roman", Times, serif;
+    background-color: aquamarine;
+}
+
+/* 中文样式 */
+.zh-hans-style {
+    /* 中文样式的定义 */
+    font-family: '教育部標準楷書', 'DFKai-SB', 'Microsoft JhengHei', 微軟正黑體, sans-serif;
+    background-color:bisque;
+}
+
+/* 英文样式 */
+.en-style {
+    /* 英文样式的定义 */
+    font-family: "Times New Roman", Times, serif;
+    background-color:brown;
+}
+
+/* 添加其他语言样式 */
