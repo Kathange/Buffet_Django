@@ -1,0 +1,78 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Member{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">
+                        剩食區
+                </div>
+                <br>
+                <div class="joinCenter" id="menu" style="display: inline;">
+                    <p class="introduce fontStyle"> {% trans "Hold your card against the card reader" %} </p>
+                    <img class="joinMemPic" src="{% static 'image/RFID.gif' %}" />
+                    <div id="rfidResult"></div>
+                    <div id="newMember"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // Flag to control continuous reading
+            var continuousReadingFlag = true;
+            var count = 3;
+        
+            // Function to start reading RFID continuously
+            function startContinuousReading() {
+                if (continuousReadingFlag) {
+                    console.log("fetch");
+                    // Make an AJAX request to the read_rfid endpoint
+                    fetch("{% url 'WreadRFID' %}")
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            if(data.uid === 'none'){
+                                document.getElementById('rfidResult').innerText = "Welcome to visit again!";
+                                window.location.href = "/waste/Wcamera";
+                            }
+                            else{
+                                // Update the result in the HTML
+                                document.getElementById('rfidResult').innerText = "New member can not apply!";
+                                continuousReadingFlag = false;
+                                function coutdown(){
+                                    if (count == 0) {
+                                        window.location.href = "/";
+                                    }
+                                    else {
+                                        document.getElementById('newMember').innerText = "系統將於 " + count + " 秒後回首頁";
+                                        count--;
+                                    }
+                                    setTimeout(countdown, 1000);
+                                }
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            }
+
+            // Call the function when the page loads
+            window.onload = function () {
+                startContinuousReading();
+            };
+        </script>
+
+        {% endblock %}
+    </body>
+</html>
+
+
+

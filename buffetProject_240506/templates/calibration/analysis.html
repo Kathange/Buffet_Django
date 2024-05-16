@@ -1,0 +1,74 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Select Date and Food to Generate Chart{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+        <div class="App forNav">
+            <div class="corners4">
+
+                <h2>Select a Date and Food</h2>
+                <input type="date" id="datePicker">
+                <select id="foodPicker">
+                    {% for food in provide %}
+                    <option value="{{ food.name }}">{{ food.name }}</option>
+                    {% endfor %}
+                </select>
+                
+                <h2>Common Charts</h2>
+                <button class="customChartButton" data-custom-chart="sales">Sales Chart</button>
+                <button class="customChartButton" data-custom-chart="profit">Profit Chart</button>
+                
+                <h2>Chart Type</h2>
+                <button class="chartButton" data-chart-type="line">Line Chart</button>
+                <button class="chartButton" data-chart-type="bar">Bar Chart</button>
+                <button class="chartButton" data-chart-type="scatter">Scatter Chart</button>
+                
+                <h2>Chart</h2>
+                <div id="chartContainer">
+                    <p>Loading chart...</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                function generateChart(chartType, customChart) {
+                    var selectedDate = $('#datePicker').val();
+                    var selectedFood = $('#foodPicker').val();
+                    $.ajax({
+                        url: '{% url "generate_chart" %}',
+                        data: {
+                            'date': selectedDate,
+                            'food': selectedFood,
+                            'chart_type': chartType,
+                            'custom_chart': customChart
+                        },
+                        success: function(data) {
+                            $('#chartContainer').html('<img src="data:image/png;base64,' + data.image_base64 + '">');
+                        }
+                    });
+                }
+                
+                // 默认加载今日销售总额图表
+                generateChart(null, null);
+                
+                $('.chartButton').click(function() {
+                    var chartType = $(this).data('chart-type');
+                    generateChart(chartType, null);
+                });
+                
+                $('.customChartButton').click(function() {
+                    var customChart = $(this).data('custom-chart');
+                    generateChart(null, customChart);
+                });
+            });
+        </script>
+        {% endblock %}
+    </body>
+</html>
