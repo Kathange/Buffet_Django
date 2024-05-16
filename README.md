@@ -19,8 +19,12 @@ buffetProject_1125：完整精簡版，demo可以先用這個撐
 
 buffetProject_1201：2023資創競賽demo介面版
 
+
+
 buffetProject_240115：與line連接完整版(未精簡，有很多冗餘)
 
 buffetProject_240227：精簡版，全部流程用按s一下即可完成(攝影機的超音波沒完成)
 
 buffetProject_240307：超音波已完成(但還有一些bug)
+
+buffetProject_240328：超音波已完成
