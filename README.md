@@ -28,3 +28,5 @@ buffetProject_240227：精簡版，全部流程用按s一下即可完成(攝影�
 buffetProject_240307：超音波已完成(但還有一些bug)
 
 buffetProject_240328：超音波已完成
+
+buffetProject_240506：加上剩食功能
