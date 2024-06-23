@@ -2,6 +2,8 @@
 
 ### 需要之套件：pip install json Flask django numpy opencv-python line-bot-sdk==2.0.1 Flask-MySQLdb mysqlclient pyrealsense2 keyboard requests pyserial matplotlib Pillow torch==2.1.0
 
+測試 Arduino 是否可成功執行 : Rfid_and_SR04_and_btn.py
+
 buffetProjectNEW：最初的版本
 
 buffetProject_1012：加了註解
