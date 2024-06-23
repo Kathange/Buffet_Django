@@ -1,0 +1,52 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% trans "Cashier" %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="menu">
+                    <img class="foodImg" src="{% static 'image/screenShot.jpg' %}" />
+                </div>
+
+                <div class="content">
+                    <div class="cashier fontStyle">剩食區</div>
+                    <ul class="list-group fontStyle">
+                        <li>實際{% trans "Weight：" %}<div style="font-weight:bold;margin-right: 10px;">{{ weight }}</div> {% trans "gram(s)" %}</li>
+                        <li>實際{% trans "Calories：" %}<div style="font-weight:bold;margin-right: 10px;">{{ calories }}</div> {% trans "cal(s)" %}</li>
+                        <!-- <li><p style="color: red;">你浪費的：</p><div style="font-weight:bold;margin-right: 10px;">{{ cost }}</div> {% trans "dollar(s)" %}</li> -->
+                    </ul>
+                    
+                    <div style="height:10%; width:10%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            fetch("{% url 'changePage' %}")
+                .then(response => response.json())
+                .then(data => {
+                    // console.log('test in');
+                    // console.log(data);
+                    if (data.btn == 'red') {
+                        window.location.href = "/";
+                    }
+                    else if (data.btn == "black") {
+                        window.location.href = "/";
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        </script>
+        {% endblock %}
+    </body>
+</html>
+
+
+

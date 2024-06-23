@@ -1,0 +1,93 @@
+{% extends "baseSeller.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}校正{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">
+                    <!-- { trans "Join Us" } -->
+                    校正
+                </div>
+                <br>
+                <div class="capture" id="capture" style="display: inline;">
+                    <!-- <img class="camera" src="{% static 'image/qrcode.png' %}" /><br/> -->
+                    <img class="camera" src="{% url 'FoodVedioFeedCalib' %}" /><br/>
+                    <p class="introduce fontStyle" id="introduce"></p>
+                    <!-- <form method="post" id="startForm" style="display: none;">
+                        <button id="startBtn" class="startBtn fontStyle">Capture</button>
+                    </form> -->
+                </div>
+                <div id="isPlate"></div>
+            </div>
+        </div>
+
+        <script>
+            // 获取图片容器和按钮
+            var isPlate = document.getElementById('isPlate');
+            var introduce = document.getElementById('introduce');
+            var plateCount = 5;
+
+            function redirectWithCountdown(seconds) {
+                if (seconds > 0) {
+                    isPlate.innerHTML = "系統將於 " + seconds + " 秒後跳轉回首面";
+                    setTimeout(function() {
+                        redirectWithCountdown(seconds - 1);
+                    }, 1000); // 每次间隔1秒
+                } else {
+                    window.location.href = "/"; // 替换成您想要跳转的页面链接
+                }
+            }
+
+            function detectCapture(){
+                console.log("detectCapture");
+                fetch("{% url 'captureCalib' %}")
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('capture in:',data.capture);
+                        // console.log(data);
+                        // Check the continue_reading flag
+                        if (data.capture === 'no') {
+                            setTimeout(function() {
+                                console.log("distance:", data.distance);
+                                if(data.distance === 'big'){
+                                    isPlate.innerHTML = "請將餐盤放入";
+                                    plateCount = 5;
+                                }
+                                else{
+                                    isPlate.innerHTML = "餐盤將於 " + plateCount + " 秒後擷取畫面，請勿移動餐盤";
+                                    plateCount--;
+                                }
+                                detectCapture();
+                                // plateCount > 0 ? detectCapture() : redirectWithCountdown(3);
+                            }, 1000);
+                        }
+                        else{
+                            // Stop continuous reading if continue_reading is false
+                            console.log('into capture');
+                            
+                            // document.getElementById("startForm").submit();
+                            introduce.innerHTML = "已擷取空盤資訊";
+                            // 调用函数并启动倒计时
+                            redirectWithCountdown(3); // 从3开始倒计时
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            // Call the function when the page loads
+            window.onload = function () {
+                introduce.innerHTML = '校正空餐盤資訊';
+                detectCapture();
+            };
+        </script>
+        {% endblock %}
+    </body>
+</html>

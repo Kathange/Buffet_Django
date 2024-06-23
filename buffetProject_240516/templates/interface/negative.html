@@ -1,0 +1,39 @@
+{% extends "baseLine.html" %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}錯誤{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% load static %}
+
+        <div class="App forNav">
+            <div class="corners4">
+                <div class="introduceTitle fontStyle">出現負值</div><br>
+                <div class="joinCenter" style="display: inline;">
+                    <p class="introduce fontStyle"> 計算錯誤，出現負值</p>
+                    <p class="introduce fontStyle"> 系統將於 <span id="countdown"></span> 秒後跳轉回攝影機頁面 </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function redirectWithCountdown(seconds) {
+                if (seconds > 0) {
+                    document.getElementById('countdown').innerText = seconds;
+                    setTimeout(function() {
+                        redirectWithCountdown(seconds - 1);
+                    }, 1000); // 每次间隔1秒
+                } else {
+                    window.location.href = "/interface/camera"; // 替换成您想要跳转的页面链接
+                }
+            }
+            // 调用函数并启动倒计时
+            redirectWithCountdown(3); // 从3开始倒计时
+        </script>
+        {% endblock %}
+    </body>
+</html>
