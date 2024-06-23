@@ -29,4 +29,7 @@ buffetProject_240307：超音波已完成(但還有一些bug)
 
 buffetProject_240328：超音波已完成
 
-buffetProject_240506：加上剩食功能
+buffetProject_240506：加上剩食功能(體積計算是錯誤的)
+
+buffetProject_240516：台塑企業應用技術研討會(體積勉強對，但誤差還是不小)
+
