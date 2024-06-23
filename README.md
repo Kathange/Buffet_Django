@@ -1,6 +1,6 @@
 # Buffet_Django
 
-## 需要之套件：pip install json Flask django numpy opencv-python line-bot-sdk==2.0.1 Flask-MySQLdb mysqlclient pyrealsense2 keyboard requests pyserial matplotlib Pillow torch==2.1.0
+### 需要之套件：pip install json Flask django numpy opencv-python line-bot-sdk==2.0.1 Flask-MySQLdb mysqlclient pyrealsense2 keyboard requests pyserial matplotlib Pillow torch==2.1.0
 
 buffetProjectNEW：最初的版本
 
